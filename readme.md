@@ -19,7 +19,7 @@ A diverse range of notification design is available.
 
 
 > **Note**
-> This fork is intended to solve the common problem of the original Laravel Notify code polluting user code space.
+> This fork is intended to solve a [common problem](https://github.com/mckenziearts/laravel-notify/issues/84) of the original Laravel Notify code polluting user code space.
 
 > **Alert**
 > Necessary updates to the instructions have been made below, so be sure to read that!
@@ -30,13 +30,13 @@ A diverse range of notification design is available.
 
 ## Installation
 
-- You can install the package using composer
+- Install using composer
 
 ```sh
 $ composer require mckenziearts/laravel-notify
 ```
 
-- Ensure that package auto-discovery is enabled.
+- Ensure package auto-discovery is enabled.
 
 - Publish the configuration file and assets by running:
 
@@ -44,7 +44,7 @@ $ composer require mckenziearts/laravel-notify
 $ php artisan vendor:publish --provider="Mckenziearts\Notify\LaravelNotifyServiceProvider"
 ```
 
-Now that we have published a few new files to our application we need to reload them with the following command:
+- Refresh composer autoloaded classes
 
 ```sh
 $ composer dump-autoload
@@ -87,13 +87,14 @@ Then in your frontend blade:
         <title>Laravel Notify</title>
     </head>
     <body>
+        ...
         <x:notify-messages />
         @notifyJs
     </body>
 </html>
 ```
 
-### Type of notifications
+### Types of notifications
 
 Laravel Notify actually display 5 types of notifications
 
