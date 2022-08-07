@@ -29,10 +29,6 @@ class LaravelNotifyServiceProvider extends ServiceProvider
 
     public function registerBladeDirective(): void
     {
-        Blade::directive('notifyCss', function () {
-            return '<?php echo notifyCss(); ?>';
-        });
-
         Blade::directive('notifyJs', function () {
             return '<?php echo notifyJs(); ?>';
         });
