@@ -9,43 +9,36 @@
 
 ## Introduction
 
-Laravel Notify is a package that lets you add custom notifications to your project.
+Laravel Notify is a package that lets you add custom notifications to your Laravel >= 7 projects.
+
 A diverse range of notification design is available.
 
 <p align="center">
 <img src="https://i.imgur.com/mZVVn3L.png">
 </p>
 
-## Version Guidance
 
-| Version | Laravel version       |  Status         | Branch | Install                                             |
-|---------|-----------------------|-----------------|--------|-----------------------------------------------------|
-| 1.x     | 5.5, 5.6, 5.7, 6.0    | EOL             | 1.0    | composer require mckenziearts/laravel-notify 1.*    |
-| 2.x     | >= 7.0                | Latest          | 2.0    | composer require mckenziearts/laravel-notify        |
+> **Note**
+> This fork is intended to solve the common problem of the original Laravel Notify code polluting user code space.
 
-## Android Version
+> **Alert**
+> Necessary updates to the instructions have been made below, so be sure to read that!
 
-If you need Android version please try this package [Aesthetic Dialogs](https://github.com/gabriel-TheCode/AestheticDialogs). Happy Coding 👨🏾‍💻
+### Dependencies
+- [Alpine JS](https://alpinejs.dev/essentials/installation)
+- [Tailwind CSS](https://tailwindcss.com/docs/installation)
 
 ## Installation
 
-You can install the package using composer
+- You can install the package using composer
 
 ```sh
 $ composer require mckenziearts/laravel-notify
 ```
 
-Then add the service provider to `config/app.php`. In Laravel versions 5.5 and beyond, this step can be skipped if package auto-discovery is enabled.
+- Ensure that package auto-discovery is enabled.
 
-```php
-'providers' => [
-    ...
-    Mckenziearts\Notify\LaravelNotifyServiceProvider::class
-    ...
-];
-```
-
-You can publish the configuration file and assets by running:
+- Publish the configuration file and assets by running:
 
 ```sh
 $ php artisan vendor:publish --provider="Mckenziearts\Notify\LaravelNotifyServiceProvider"
@@ -59,18 +52,20 @@ $ composer dump-autoload
 
 ## Usage
 
-1. Add styles links with `@notifyCss`
+1. Ensure [Alpine](https://github.com/alpinejs/alpine) is loaded on any page where you want to use this Laravel Notify package. You can use the official CDN to quickly include Alpine:
+
+```html
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+```
+
 2. Add scripts links with `@notifyJs`
-3. use `notify()` helper function inside your controller to set a toast notification for info, success, warning or error
-4. Include notify partial to your master layout `@include('notify::components.notify')`
-
-If you are on Laravel 7 or greater, you can use the tag syntax.
-
+3. Use `notify()` helper function inside your controller to set a toast notification for info, success, warning or error
+4. Include notify partial to your master layout:
 ```html
 <x:notify-messages />
 ```
 
-### Basic
+### Example
 
 Within your controllers, before you perform a redirect call the `notify` method with a message.
 
@@ -83,20 +78,15 @@ public function store()
 }
 ```
 
-An complete example:
+Then in your frontend blade:
 
 ```blade
 <!doctype html>
 <html>
     <head>
         <title>Laravel Notify</title>
-        @notifyCss
     </head>
     <body>
-
-
-        @include('notify::messages')
-        // Laravel 7 or greater
         <x:notify-messages />
         @notifyJs
     </body>
