@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Laravel Notify is a package that lets you add custom notifications to your Laravel >= 7 projects.
+Laravel Notify is a package that lets you add custom notifications to your Laravel >= 8 projects.
 
 A diverse range of notification design is available.
 
@@ -36,19 +36,15 @@ A diverse range of notification design is available.
 $ composer require mckenziearts/laravel-notify
 ```
 
-- Ensure package auto-discovery is enabled.
-
 - Publish the configuration file and assets by running:
 
-```sh
-$ php artisan vendor:publish --provider="Mckenziearts\Notify\LaravelNotifyServiceProvider"
-```
-
-- Refresh composer autoloaded classes
+> **Note**
+> The  `--force` option is completely optional
 
 ```sh
-$ composer dump-autoload
+php artisan vendor:publish --provider="Mckenziearts\Notify\LaravelNotifyServiceProvider" --force
 ```
+
 
 ## Usage
 
