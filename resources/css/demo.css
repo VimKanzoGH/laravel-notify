@@ -1,0 +1,11 @@
+@import url('https://rsms.me/inter/inter.css');
+@import "prism.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+pre[class*="language-"] {
+  border: none;
+  margin-top: 0;
+}

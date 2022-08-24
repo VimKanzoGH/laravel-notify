@@ -1,5 +1,5 @@
-const mix = require('laravel-mix');
-require('laravel-mix-tailwind');
+const mix = require('laravel-mix')
+require('laravel-mix-tailwind')
 
 /*
  |--------------------------------------------------------------------------
@@ -17,7 +17,10 @@ mix.setResourceRoot('../')
 
 mix.js('resources/js/app.js', 'public/js')
   .js('resources/js/notify.js', 'public/js')
-  .postCss('resources/css/app.css', 'public/css', [require('tailwindcss')])
+  .postCss(
+    'resources/css/demo.css', 'public/css', [
+    require('tailwindcss')
+  ])
 
 if (mix.inProduction()) {
   mix.version()

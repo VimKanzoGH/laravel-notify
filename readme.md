@@ -1,4 +1,4 @@
-<p align="center"><img src="https://laravel.cm/img/brand/laravel-notify.svg"></p>
+<p align="center"><img src="https://banners.beyondco.de/Laravel%20Notify.png?theme=dark&packageManager=composer+require&packageName=mckenziearts%2Flaravel-notify&pattern=hexagons&style=style_2&description=A+More+Flexible+Flash+Notifications+for+Laravel&md=0&showWatermark=1&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/mckenziearts/laravel-notify"><img src="https://img.shields.io/travis/mckenziearts/laravel-notify/master.svg?style=flat-square" alt="Build Status"></a>
@@ -26,14 +26,27 @@ A diverse range of notification design is available.
 
 ### Dependencies
 - [Alpine JS](https://alpinejs.dev/essentials/installation)
-- [Tailwind CSS](https://tailwindcss.com/docs/installation)
+- [Tailwind CSS v3](https://tailwindcss.com/docs/installation)
 
 ## Installation
+
+This package is a forked replacement for the original [mckenziearts/laravel-notify](https://github.com/mckenziearts/laravel-notify) package because of [a known collision issue](https://github.com/mckenziearts/laravel-notify/issues/84#issuecomment-1207413728), so you must add this repo to your `composer.json` *repositories* key, like below:
+
+```
+{
+   "repositories": {
+        "laravel-notify": {
+            "type": "vcs",
+            "url": "https://github.com/damms005/laravel-notify"
+        }
+    }
+}
+```
 
 - Install using composer
 
 ```sh
-$ composer require mckenziearts/laravel-notify
+composer require mckenziearts/laravel-notify
 ```
 
 - Publish the configuration file and assets by running:

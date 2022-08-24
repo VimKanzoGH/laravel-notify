@@ -1633,6 +1633,7 @@ pre[class*="language-"] {
   margin-top: 0;
 }
 
+<<<<<<< HEAD
 .hover\:bg-pink-500:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(236 72 153 / var(--tw-bg-opacity));
@@ -1942,3 +1943,5 @@ pre[class*="language-"] {
   }
 }
 
+=======
+>>>>>>> 896afd5 (Update readme.md)
