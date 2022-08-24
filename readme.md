@@ -17,12 +17,8 @@ A diverse range of notification design is available.
 <img src="https://i.imgur.com/mZVVn3L.png">
 </p>
 
-
 > **Note**
 > This fork is intended to solve a [common problem](https://github.com/mckenziearts/laravel-notify/issues/84) of the original Laravel Notify code polluting user code space.
-
-> **Alert**
-> Necessary updates to the instructions have been made below, so be sure to read that!
 
 ### Dependencies
 - [Alpine JS](https://alpinejs.dev/essentials/installation)
@@ -30,7 +26,7 @@ A diverse range of notification design is available.
 
 ## Installation
 
-This package is a forked replacement for the original [mckenziearts/laravel-notify](https://github.com/mckenziearts/laravel-notify) package because of [a known collision issue](https://github.com/mckenziearts/laravel-notify/issues/84#issuecomment-1207413728), so you must add this repo to your `composer.json` *repositories* key, like below:
+- This package is a forked replacement for the original [mckenziearts/laravel-notify](https://github.com/mckenziearts/laravel-notify) package because of [a known collision issue](https://github.com/mckenziearts/laravel-notify/issues/84#issuecomment-1207413728), so you must add this repo to your `composer.json` *repositories* key, like below:
 
 ```
 {
@@ -43,7 +39,7 @@ This package is a forked replacement for the original [mckenziearts/laravel-noti
 }
 ```
 
-- Install using composer
+- Require package using Composer
 
 ```sh
 composer require mckenziearts/laravel-notify
@@ -58,6 +54,16 @@ composer require mckenziearts/laravel-notify
 php artisan vendor:publish --provider="Mckenziearts\Notify\LaravelNotifyServiceProvider" --force
 ```
 
+- Finally, include this package's blade views as part of files Tailwind should build styles for, by updating the `content` property of your app's Tailwind config file `tailwind.config.js`:
+```
+module.exports = {
+  content: [
+    ...
+    ./vendor/mckenziearts/laravel-notify/resources/views/**/*.blade.php",
+  ],
+}
+```
+
 
 ## Usage
 
@@ -68,26 +74,15 @@ php artisan vendor:publish --provider="Mckenziearts\Notify\LaravelNotifyServiceP
 ```
 
 2. Add scripts links with `@notifyJs`
-3. Use `notify()` helper function inside your controller to set a toast notification for info, success, warning or error
-4. Include notify partial to your master layout:
+3. Include notify partial to your master layout:
 ```html
 <x:notify-messages />
 ```
+4. Use `notify()` helper function inside your controller to set a toast notification for info, success, warning or error
 
 ### Example
 
-Within your controllers, before you perform a redirect call the `notify` method with a message.
-
-```php
-public function store()
-{
-    notify()->success('Laravel Notify is awesome!');
-
-    return Redirect::home();
-}
-```
-
-Then in your frontend blade:
+Frontend blade:
 
 ```blade
 <!doctype html>
@@ -101,6 +96,17 @@ Then in your frontend blade:
         @notifyJs
     </body>
 </html>
+```
+
+In a controller, before you perform a redirect, call the `notify` method with a message.
+
+```php
+public function store()
+{
+    notify()->success('Laravel Notify is awesome!');
+
+    return Redirect::home();
+}
 ```
 
 ### Types of notifications
